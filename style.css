@@ -1,0 +1,24 @@
+.main__container{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.lane__one, .lane__two, .lane__three{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+}
+#square__one, #square__two, #square__three{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.row__one, .row__two, .row__three{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+}

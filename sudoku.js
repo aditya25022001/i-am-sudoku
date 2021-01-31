@@ -26,6 +26,24 @@ let col_seven=[]
 let col_eight=[]
 let col_nine=[]
 let variable;
+let unKnown;
+function sanitize(){
+    for(let i=1;i<82;++i){
+        variable='block__'+i;
+        unKnown = document.getElementById(variable).value;
+        if(unKnown<=0 || unKnown>9 || unKnown-Math.floor(unKnown)!=0){
+            document.getElementById('warning').innerHTML="Please enter valid inputs!!";
+            reset();
+            break;
+        }
+    }
+}
+function reset(){
+    for(let i=1;i<82;++i){
+        variable='block__'+i;
+        document.getElementById(variable).value=" ";
+    }
+}
 function set(){
     for(let i=1;i<10;++i){
         variable="block__"+i;

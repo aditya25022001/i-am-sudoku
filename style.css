@@ -52,9 +52,3 @@ body{
 .submit{
     margin-top: 50px;
 }
-#block__three, #block__six, #block__nine{
-    border-right: 2px ridge black;
-}
-#block__seven, #block__eight, #block__nine{
-    border-bottom: 2px ridge black;
-}

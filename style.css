@@ -1,4 +1,18 @@
-.main__container{
+body{
+    font-family: 'oswald';
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
+.heading{
+    font-weight: 400;
+    font-size: large;
+}
+.sudoku__board{
+    margin-top: 50px;
     display: flex;
     align-items: center;
     text-align: center;
@@ -21,4 +35,26 @@
     align-items: center;
     text-align: center;
     flex-direction: row;
+}
+.block{
+    width: 20px;
+    height: 20px;
+    outline: none;
+    offset: none;
+    outline-offset: none;
+    text-align: center;
+    border: 0.4px ridge rgb(168,168,168);
+}
+.block::-webkit-inner-spin-button, .block::-webkit-outer-spin-button{
+    margin: 0;
+    -webkit-appearance: none;
+}
+.submit{
+    margin-top: 50px;
+}
+#block__three, #block__six, #block__nine{
+    border-right: 2px ridge black;
+}
+#block__seven, #block__eight, #block__nine{
+    border-bottom: 2px ridge black;
 }

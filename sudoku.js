@@ -16,7 +16,9 @@ let col_six=new Set();
 let col_seven=new Set();
 let col_eight=new Set();
 let col_nine=new Set();
-let values=[]
+let standardSet = new Set([1,2,3,4,5,6,7,8,9]);
+let initialValues=[];
+let finalValues=[];
 let variable;
 let unKnown;
 const dictionary={
@@ -30,7 +32,18 @@ const dictionary={
     8:'block__8',
     9:'block__9'
 }
-const dictionary_one={
+const dictionary_rows={
+    1:row_one,
+    2:row_two,
+    3:row_three,
+    4:row_four,
+    5:row_five,
+    6:row_six,
+    7:row_seven,
+    8:row_eight,
+    9:row_nine
+}
+const dictionary_colomns={
     1:col_one,
     2:col_two,
     3:col_three,
@@ -47,7 +60,7 @@ function sanitize(){
     for(let i=1;i<82;++i){
         variable='block__'+i;
         unKnown = document.getElementById(variable).value;
-        values.push(unKnown);
+        initialValues.push(unKnown);
         if((unKnown<=0 || unKnown>9) && unKnown!=""){
             console.log(unKnown);
             document.getElementById('warning').innerHTML="Please enter valid inputs!!";
@@ -55,7 +68,7 @@ function sanitize(){
             return true;
         }
     }
-    values.forEach(element => {
+    initialValues.forEach(element => {
         if(element!="")
             count++;        
     });
@@ -70,9 +83,9 @@ function reset(){
         variable='block__'+i;
         document.getElementById(variable).value="";
     }
-    values=[];
+    initialValues=[];
 }
-function set(){
+function setRowsColomns(){
     console.log('set called')
     for(let i=1;i<10;++i){
         variable="block__"+i;
@@ -113,14 +126,8 @@ function set(){
     for(let i=1;i<10;++i){
         variable = dictionary.i;
         for(let j=i;j<=72+i;j+=9)
-            dictionary_one.i.add(document.getElementById(variable).value);
+            dictionary_colomns.i.add(document.getElementById(variable).value);
     }
-}
-function solveMe(){
-    console.log('hello');
-    if(sanitize())
-        return;
-    set();
 }
 function intersection(setA, setB){
     let intersectionSet = new Set();
@@ -129,4 +136,25 @@ function intersection(setA, setB){
             intersectionSet.add(elem);
     }
     return intersectionSet;
+}
+function difference(setA, setB){
+    let differenceSet = new Set(setA);
+    for(let elem of setB){
+        differenceSet.delete(elem);
+    }
+    return differenceSet;
+}
+function simplifyValues(){
+    for(let i=1;i<=9;++i){
+        for(let j=1;j<=9;++j){
+            finalValues.push(intersection(dictionary_rows.i,dictionary_colomns.j));
+        }
+    }
+    console.log(finalValues);
+}
+function solveMe(){
+    console.log('hello');
+    if(sanitize())
+        return;
+    setRowsColomns();
 }
